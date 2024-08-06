@@ -16,22 +16,24 @@ sudo service nfs-kernel-server restart
 ## Worker Node
 ``` js copy
 sudo apt-get install nfs-common
-
 cd /opt
 sudo mkdir mount
 sudo mount ipadresse_manager:/opt/exchange_data /opt/mount 
 ```
+
 ## persistent User Volumen
 ``` js copy
 mkdir jupyterhub-user-volumes
 ```
+
 ## Json file
-
+``` js copy
 /opt/exchange_data/user-name.json
-
 {"student": {"student001": "", "student002": "", "student003": "", "student004": ""},
  "dozent" : {"dozent01":"", "dozent02":""}
 }
+```
+
 ## Referecnces
 
 1. [ubuntu NFS](https://wiki.ubuntuusers.de/NFS/)
