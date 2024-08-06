@@ -1,15 +1,22 @@
-{
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+{"*": {
+  "type": "page"
+},
+
+  "index": {
+           "title":"Data Science Lab",
+           "display": "hidden"
+           },
+
+  "TLJH":{
+         "title":"TLJH"
+         },
+
+  "Jupyter_Docker":{
+        "title":"Jupyter_Docker"
+       },
+
+  "Swarm_Mode":{
+        "title":"Jupyter_Swarm"
+       }
+
 }

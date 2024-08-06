@@ -1,0 +1,8 @@
+{
+    "index": "Einleitung",
+    "Technische_Überblick": "Technische Überblick",
+    "Guide":"Verwaltung Ihrer Programmierumgebung",
+    "Deploy":"Deployment in bwCloud",
+    "Hub": "Jupyterhub",
+    "Lab":"Jupyterlab (Single User Server)"
+}
