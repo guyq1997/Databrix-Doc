@@ -4,8 +4,8 @@ Um https verwenden zu können, müssen wir das SSL-Zertifikat für die VM erstel
 Außerdem Shibboleth SP braucht auch ein Zertifikat um mit Shibboleth IdP zu kommunizieren.
 Hier verwenden wir certbot und Letsencrypt, um das Zertifikat automatisch zu generieren. 
  
-1.  Launch eine VM mit Ubuntu 20.04/22.04 
-2.  SSH zu Ihre VM, wo JD eingesetzt wird. 
+1.  Launch eine Manager VM mit Ubuntu 20.04/22.04 
+2.  SSH zu Ihre Manager VM, wo JD eingesetzt wird. 
 3.  ```js copy
     mkdir /opt/jupyterhub_docker
     cd /opt/jupyterhub_docker
@@ -23,15 +23,21 @@ Hier verwenden wir certbot und Letsencrypt, um das Zertifikat automatisch zu gen
 7.  ```js copy
     sudo certbot renew --dry-run
     ```
-5.	```js copy
+8.	```js copy
     openssl dhparam -out /etc/ssl/certs/dhparams.pem 2048
     ```
-6.  ```js copy
+9.  ```js copy
     shib-keygen -u _shibd -g _shibd -h $(hostname -f) -y 30 -e https://$(hostname -f)/shibboleth -n sp-signing -f
     ```
-7.  ```js copy
+10.  ```js copy
     shib-keygen -u _shibd -g _shibd -h $(hostname -f) -y 30 -e https://$(hostname -f)/shibboleth -n sp-encrypt -f
     ```
+## Bemerkung:
+
+SSL Zertifikat von Certbot functioniert nur 3 Monate. Nach 3 Monaten muss SSL Zertifikat neu generiert werden:
+``` js copy
+sudo certbot certonly --standalone
+```
 ## References
 
 1. [SSLCertificateFile mit certbot generieren](https://certbot.eff.org/instructions?ws=other&os=ubuntufocal)

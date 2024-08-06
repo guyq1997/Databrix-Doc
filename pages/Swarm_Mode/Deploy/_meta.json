@@ -1,9 +1,10 @@
 {
   "Zertifikat": "SSL-Zertifikat",
   "Install":"Install Apache",
-  "NFS":"Network File",
-  "Docker-compose":"Deployment",
   "Apache_config":"Konfiguration Apache",
   "Shib_config":"Konfiguration Shibboleth",
+  "Swarm": "Swarm Konfigurieren",
+  "NFS":"Network File",
+  "Docker-compose":"Deployment",
   "Jupyterhub_config":"Konfiguration jupyterhub"
 }

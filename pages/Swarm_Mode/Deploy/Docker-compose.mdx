@@ -1,6 +1,6 @@
 # Deployment mit docker-compose.yml
 
-Sie sollen zuerst ein Directory für Ihres Jupyterhub Projekt auf Ihre VM erstellen. 
+Sie sollen zuerst ein Directory für Ihres Jupyterhub Projekt auf Ihre VM erstellen. (Z.B. /opt/jupyter-dhbw-swarm)
 Verwenden Sie **docker-compose.yml** in deisem Directory, um Images zu ziehen und auszuführen.
 Hier wird ein Beispiel **docker-compose.yml** dargestellt.
 
@@ -17,7 +17,9 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:rw"
       - "./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py"
+      - "./forum_service.py:/srv/jupyterhub/forum_service.py"
       - "./jupyterhub-datavolume:/data"
+      - "./forum-database/forumbase.db:/opt/forum-database/forumbase.db"
       - "/opt/exchange_data:/srv/ngshare"
 
     environment:
@@ -66,12 +68,38 @@ networks:
     driver: overlay
     attachable: true
 ```
+## Jupyterhub Configuration File
+Kopieren Sie die Konfigurationsdatei jupyterhub_config.py in diesen Directory. Diese Datei ist in nächsten Abschnitt verfügbar.
 
 
-In dem gleichen Odner, wo docker compose file liegt, sollten Sie zwei Odner erstellen:
-```js copy
-mkdir database-volume
+## Notwendige Directory
+In /opt/jupyter-dhbw-swarm, wo docker compose file liegt, sollten Sie zwei Odner erstellen:
+
+persistent user Volumen
+``` js copy
+mkdir jupyterhub-user-volumes
+```
+daten bank für forum
+``` js copy
+mkdir forum-database
+```
+daten bank für jupyterhub secret
+``` js copy
 mkdir jupyterhub-datavolume
+```
+Persistent Volumen für POSTGRESQL
+``` js copy
+mkdir jupyterhub-datavolume
+```
+## Forum Service
+
+Kopieren Sie die Forum Service Script 
+von [jupyterlab_forum extension](https://github.com/databrix-org/jupyterlab-forum/tree/main/jupyterhub_service) 
+auch in diesem Directory (/opt/jupyter-dhbw-swarm)
+
+## Deployment
+``` js copy
+docker stack deploy -c docker-compose.yml [name der Service]
 ```
 
 In Volumes sehen Sie viele Dateien, die in docker network hinzugefügt werden müssen.
