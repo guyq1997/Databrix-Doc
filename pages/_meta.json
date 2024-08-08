@@ -1,22 +1,23 @@
-{"*": {
-  "type": "page"
-},
+{
 
   "index": {
            "title":"Data Science Lab",
-           "display": "hidden"
+           "type": "page"
            },
 
-  "TLJH":{
-         "title":"TLJH"
-         },
+  "TLJH": {
+         "title":"TLJH",
+         "type": "page"
+          },
 
   "Jupyter_Docker":{
-        "title":"Jupyter_Docker"
+        "title":"Jupyter_Docker",
+        "type": "page"
        },
 
   "Swarm_Mode":{
-        "title":"Jupyter_Swarm"
+        "title":"Jupyter_Swarm",
+        "type": "page"
        }
 
 }
