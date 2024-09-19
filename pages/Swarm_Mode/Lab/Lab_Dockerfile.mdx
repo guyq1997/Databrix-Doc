@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y graphviz
 ARG NB_USER
 USER ${NB_USER}
 # Install systemwide JupyterLab extension
-RUN pip install 'jupyter-collaboration==2.1.1' 'nbgrader==0.9.3'\
+RUN pip install 'jupyter-collaboration==2.1.2' 'nbgrader==0.9.3'\
     && pip install matplotlib ipympl plotly virtualenv jupyterlab_logout \
     && pip install 'jlab_homepage==0.1.13' 'jupyterlab_forum==0.1.25' 'databrix_hub_extension==0.1.18'
 # Add more environment files as needed
